@@ -1,4 +1,4 @@
-function inject() {
+(function inject() {
   let table_iframe = document.getElementById('Iframe1').contentDocument
 	let total_application = 0, total_allocation = 0;
   for (i=2; i<41; i++) {
@@ -12,4 +12,4 @@ function inject() {
 		application_span.textContent = `${application} / ${ ratio.toFixed(2) }`;
   }
 	table_iframe.querySelector('#gvDetailList th').textContent = `${table_iframe.querySelector('#gvDetailList a').textContent.split('/')[0].trim()} / Total Application ${total_application} Avg ${(total_application/total_allocation).toFixed(2)}`;
-}
+})();
