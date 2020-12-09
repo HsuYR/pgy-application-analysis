@@ -8,20 +8,14 @@
 	<h1>PGY 報名人數顯影劑</h1>
 	<p>注射後能夠呈現出各醫院當下報名人次相對於名額的比例，並在標題列呈現當下總報名人次以及人均報名院數（即總報名人數除以總名額）</p>
 	<p>把 <a href="javascript:(function() {
-		let table_iframe = document.getElementById('Iframe1').contentDocument;
-		let total_application = 0, total_allocation = 0;
-	  	for (i=2; i<41; i++) {
-			let application_span = table_iframe.getElementById(`gvDetailList_ctl${i<10?'0'+i.toString():i}_lblExamProcessCount`);
-			let allocation_span = table_iframe.getElementById(`gvDetailList_ctl${i<10?'0'+i.toString():i}_lblOccupation`);
-			let application = Number(application_span.textContent.split('/')[0].trim());
-			let allocation = Number(allocation_span.textContent);
-			let ratio = application/allocation;
-			total_application += application;
-			total_allocation += allocation;
-			application_span.textContent = `${application} / ${ ratio.toFixed(2) }`;
+		if (document.getElementById('contrast_script') === null) {
+			let contrast_script = document.createElement('script');
+			contrast_script.id = ('contrast_script');
+			contrast_script.src = 'https://hsuyr.github.io/pgy-application-contrast/contrast.js';
+			document.body.appendChild(contrast_script);	
 		}
-		table_iframe.querySelector('#gvDetailList a').textContent = `${table_iframe.querySelector('#gvDetailList th').textContent.split('/')[0].trim()} / Total applications ${total_application} Avg ${(total_application/total_allocation).toFixed(2)}`;
-})()">注射顯影劑</a> 連結拖曳到書籤列，在選配系統的**線上報名及查詢**頁面按下書籤即可！</p>
+		inject();
+		})()">注射顯影劑</a> 連結拖曳到書籤列，在選配系統的**線上報名及查詢**頁面按下書籤即可！</p>
   <style>
   /**
   * Reset some basic elements
