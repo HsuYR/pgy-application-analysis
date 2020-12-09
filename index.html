@@ -5,7 +5,7 @@
 </head>
 <body>
   把<a href="javascript:(function() {
-	let table_iframe = document.getElementById('Iframe1').contentDocument
+	let table_iframe = document.getElementById('Iframe1').contentDocument;
 	let total_application = 0, total_allocation = 0;
   for (i=2; i<41; i++) {
     let application_span = table_iframe.getElementById(`gvDetailList_ctl${i<10?'0'+i.toString():i}_lblExamProcessCount`);
@@ -18,6 +18,6 @@
 		application_span.textContent = `${application} / ${ ratio.toFixed(2) }`;
   }
 	table_iframe.querySelector('#gvDetailList th').textContent = `${table_iframe.querySelector('#gvDetailList th').textContent.split('/')[0].trim()} / 總報名人次 ${total_application} 平均報名院數 ${(total_application/total_allocation).toFixed(2)}`;
-})()">這個連結</a>拖曳到書籤列，在選配系統的線上報名及查詢按下書籤即可！
+})()">顯影劑</a>連結拖曳到書籤列，在選配系統的線上報名及查詢按下書籤即可！
 </body>
 </html>
