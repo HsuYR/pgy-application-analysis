@@ -2,7 +2,7 @@ function inject() {
   let table_iframe = document.getElementById('Iframe1').contentDocument
   let row_count = table_iframe.getElementById('gvDetailList').querySelectorAll('tr').length-1
   let total_application = 0, total_allocation = 0;
-  for (i=2; i<row_count; i++) {
+  for (i=2; i<row_count+2; i++) {
     let application_span = table_iframe.getElementById(`gvDetailList_ctl${i<10?'0'+i.toString():i}_lblExamProcessCount`);
 		let allocation_span = table_iframe.getElementById(`gvDetailList_ctl${i<10?'0'+i.toString():i}_lblOccupation`);
 		let application = Number(application_span.textContent.split('/')[0].trim());
